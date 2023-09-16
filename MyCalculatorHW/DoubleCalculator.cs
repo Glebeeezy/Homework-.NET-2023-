@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace MyCalculatorHW
 {
-    public class DoubleCalculator
+    internal class DoubleCalculator
     {
         public readonly string _calculatorName;
 
