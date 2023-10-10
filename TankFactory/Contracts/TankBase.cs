@@ -40,7 +40,7 @@ namespace TankFactory.Contracts
 
         public void StartEngine()
         {
-            if (_engineIsRunning == false)
+            if (!_engineIsRunning)
             {
                 _engineIsRunning = true;
             }
@@ -48,7 +48,7 @@ namespace TankFactory.Contracts
 
         public void StopEngine()
         {
-            if (_engineIsRunning == true)
+            if (_engineIsRunning)
             {
                 _engineIsRunning = false;
             }
@@ -63,7 +63,7 @@ namespace TankFactory.Contracts
 
         public void TurnLeft()
         {
-            if (_engineIsRunning == true)
+            if (_engineIsRunning)
             {
                 if (_direction == Direction.straight)
                 {
@@ -90,7 +90,7 @@ namespace TankFactory.Contracts
 
         public void TurnRight()
         {
-            if (_engineIsRunning == true)
+            if (_engineIsRunning)
             {
                 if (_direction == Direction.straight)
                 {
@@ -116,5 +116,7 @@ namespace TankFactory.Contracts
         }
 
         public abstract void Fire();
+
+
     }
 }
