@@ -1,14 +1,11 @@
-﻿using System.Collections.Immutable;
-using System.Runtime.ExceptionServices;
-using System.Text;
-namespace Homework2
+﻿namespace Homework2
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             // exercise 1 first link
-
+            // two arguments that will return an array of the first n multiples of x. 
             static int[] countBy(int number, int counter)
             {
                 int[] array = new int[counter];
@@ -22,20 +19,16 @@ namespace Homework2
             }
 
             // exercise 1 second link
-
+            // function that split a string and convert it into an array of words.
             string[] mySplit(string str)
             {
                 string[] array = str.Trim().Split(' ').ToArray();
                 return array;
             }
 
-            string one = "Robin Singh";
-            string two = "I love arrays they are my favorite";
-            string[] oneResult = mySplit(one);
-            string[] twoResult = mySplit(two);
             // Exercise 1 link 3
-
-            int[] Link3(int[] arr)
+            // Returns an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.
+            int[] CountOfPositivesSumOfNegatives(int[] arr)
             {
                 int posNumCounter = 0;
                 int negNumSum = 0;
@@ -53,10 +46,10 @@ namespace Homework2
                 int[] nArr = new int[2] { posNumCounter, negNumSum };
                 return nArr;
             }
-            
-            // Exercise 1 link 4
 
-            int squareSum(int[] array)
+            // Exercise 1 link 4
+            // square sum function so that it squares each number passed into it and then sums the results together.
+            int SquareSum(int[] array)
             {
                 int result = 0;
                 for (int i = 0; i < array.Length; i++)
@@ -67,8 +60,8 @@ namespace Homework2
             }
 
             // Exercise 1 link 5
-            
-            char[] Link5(int number)
+            // return the digits of number within an array in reverse order.
+            char[] ReversedArrayOfDigits(int number)
             {
                 string str = number.ToString();
                 char[] chars = new char[str.Length];
@@ -115,14 +108,12 @@ namespace Homework2
             while (c >= -100);
 
             // Additional exercise 1
-
+            // function that checks if something is a palindrome. 
             bool isPalindrome(string str)
             {
                 string firstStr = str;
                 char[] secRev = str.Reverse().ToArray();
-                string secondStrRev = new string(secRev); 
-                char[] secondChArr = secondStrRev.ToCharArray();
-                string secondStr = new string(secondChArr);
+                string secondStr = new(secRev);
                 if (firstStr == secondStr)
                 {
                     return true;
@@ -133,33 +124,35 @@ namespace Homework2
                 }
             }
 
-            // Additional exercise 2
 
+
+            // Additional exercise 2
+            // return an array that has 1 added to the value represented by the array.
             int[] ArrPlusOne(int[] array)
             {
                 int[] outArray = new int[array.Length];
-                bool incrHasDone = false;
+                bool incrementHasDone = false;
                 for (int i = array.Length - 1; i >= 0; i--)
                 {
-                    bool wasNil = false;
+                    bool wasNull = false;
                     if (array[i] < 0)
                     {
                         array[i] = 0;
-                        wasNil = true;
+                        wasNull = true;
                     }
-                    if (incrHasDone == false && wasNil == false)
+                    if (!incrementHasDone && !wasNull)
                     {
                         array[i] += 1;
-                        incrHasDone = true;
+                        incrementHasDone = true;
                     }
                     if (array[i] >= 10)
                     {
                         array[i] = 0;
-                        incrHasDone = false;
+                        incrementHasDone = false;
                     }
                     if (i == 0 && array[i] == 0)
                     {
-                        if (incrHasDone == false)
+                        if (incrementHasDone == false)
                         {
                             array[i] += 1;
                         }
