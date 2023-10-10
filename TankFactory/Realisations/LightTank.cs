@@ -13,41 +13,61 @@ namespace TankFactory
 
                 if (_direction == Direction.straight && _isMoving)
                 {
-                    for (int i = 0; i < timeOfMoivng; i++)
-                    {
-                        Y = Y + _speed;
-                    }
-                    StopMoving();
+                    MoveStraight(timeOfMoivng);
                 }
                 else if (_direction == Direction.right && _isMoving)
                 {
-                    for (int i = 0; i < timeOfMoivng; i++)
-                    {
-                        X = X + _speed;
-                    }
-                    StopMoving();
+                    MoveRight(timeOfMoivng);
                 }
                 else if (_direction == Direction.left && _isMoving)
                 {
-                    for (int i = 0; i < timeOfMoivng; i++)
-                    {
-                        X = X - _speed;
-                    }
-                    StopMoving();
+                    MoveLeft(timeOfMoivng);
                 }
                 else if (_direction == Direction.back && _isMoving)
                 {
-                    for (int i = 0; i < timeOfMoivng; i++)
-                    {
-                        Y = Y - _speed;
-                    }
-                    StopMoving();
+                    MoveBack(timeOfMoivng);
                 }
             }
             else
             {
                 Console.WriteLine("Танк не заведён");
             }
+        }
+
+        private void MoveStraight(int timeOfMoving)
+        {
+            for (int i = 0; i < timeOfMoving; i++)
+            {
+                Y = Y + _speed;
+            }
+            StopMoving();
+        }
+
+        private void MoveRight(int timeOfMoving)
+        {
+            for (int i = 0; i < timeOfMoving; i++)
+            {
+                X = X + _speed;
+            }
+            StopMoving();
+        }
+
+        private void MoveLeft(int timeOfMoving)
+        {
+            for (int i = 0; i < timeOfMoving; i++)
+            {
+                X = X - _speed;
+            }
+            StopMoving();
+        }
+
+        private void MoveBack(int timeOfMoving)
+        {
+            for (int i = 0; i < timeOfMoving; i++)
+            {
+                Y = Y - _speed;
+            }
+            StopMoving();
         }
 
         public LightTank(string tankType)
