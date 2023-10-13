@@ -53,15 +53,10 @@ namespace HWCollections
             ShowArrayList(arrayList);
             ShowList(list);
 
+            // Exercise 2
             Console.WriteLine("Exercise 2");
 
-            MyList myList = new MyList("List");
-            myList.Add("1");
-            myList.Add("2");
-            for (int i = 0; i < myList.NumberOfElements; i++)
-            {
-                
-            }
+            
         }
     }
 }
