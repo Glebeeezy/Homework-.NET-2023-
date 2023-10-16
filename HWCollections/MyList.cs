@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HWCollections.MyClass;
+using System.Collections;
 
 namespace HWCollections
 {
-    public sealed class MyList<T>
+    public sealed class MyUserList : IEnumerable<User>
     {
         public string ListName { get; init; }
 
@@ -26,9 +23,9 @@ namespace HWCollections
             private set {}
         }
 
-        private T[] _array;
+        private User[] _array;
 
-        public T this[int index]
+        public User this[int index]
         {
             get
             {
@@ -52,7 +49,7 @@ namespace HWCollections
             }
         }
 
-        public void Add(T item)
+        public void Add(User item)
         {
             if (Count != 0 && Count == Capacity)
             {
@@ -60,11 +57,12 @@ namespace HWCollections
             }
             _array[_count] = item;
             CountMethod();
-            Sort();
+            IComparer<User> comparer = new UserComparer();
+            Sort(comparer);
         }
-        private void Sort(IComparer<T>? comparer)
+        private void Sort(IComparer<User>? comparer)
         {
-            Array.Sort<T>(_array, 0, Count, comparer);
+            Array.Sort(_array, 0, Count, comparer);
         }
         public void RemoveAt(int index)
         {
@@ -72,7 +70,7 @@ namespace HWCollections
             {
                 throw new Exception("IndexIsOutOfRengeExeption");
             }
-            T[] array = new T[_array.Length];
+            User[] array = new User[_array.Length];
             for (int i = 0; i < index; i++)
             {
                 array[i] = _array[i];
@@ -103,7 +101,7 @@ namespace HWCollections
 
         private void ResizeList()
         {
-            T[] array = new T[_array.Length * 2];
+            User[] array = new User[_array.Length * 2];
             for (int i = 0; i < _array.Length; i++)
             {
                 array[i] = _array[i];
@@ -112,22 +110,34 @@ namespace HWCollections
             Capacity = _array.Length;
         }
 
-        public MyList()
+        public IEnumerator<User> GetEnumerator()
+        {
+            UserEnumerator enumerator = new(_array);
+            return enumerator;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            UserEnumerator enumerator = new(_array);
+            return enumerator;
+        }
+
+        public MyUserList()
         {
             ListName = "MyList";
-            _array = new T[4];
+            _array = new User[4];
             Capacity = _array.Length;
         }
-        public MyList(string name)
+        public MyUserList(string name)
         {
             ListName = name;
-            _array = new T[4];
+            _array = new User[4];
             Capacity = _array.Length;
         }
-        public MyList(string name, int startCapacityOfList)
+        public MyUserList(string name, int startCapacityOfList)
         {
             ListName = name;
-            _array = new T[startCapacityOfList];
+            _array = new User[startCapacityOfList];
             Capacity = _array.Length;
         }
     }

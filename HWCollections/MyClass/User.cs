@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,25 +8,25 @@ using System.Xml.Linq;
 
 namespace HWCollections.MyClass
 {
-    public class Person : IComparable<Person>
+    public class User : IComparable<User>
     {
         public string FirstName { get; init; }
         public string LastName { get; init; }
-        public int Id { get; set; }
+        public int Id { get; init; }
 
-        public Person(string firstName, string lastName, int id)
+        public User(string firstName, string lastName, int id)
         {
             FirstName = firstName;
             LastName = lastName;
             Id = id;
         }
 
-        public int CompareTo(Person? other)
+        public int CompareTo(User? other)
         {
-            if ((other == null) || (!(other is Person)))
+            if ((other == null) || (!(other is User)))
                 return 0;
             else
-                return LastName.CompareTo(other.LastName);
+                return Id.CompareTo(other.Id);
         }
     }
 }
