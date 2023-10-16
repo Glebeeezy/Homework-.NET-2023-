@@ -1,5 +1,4 @@
-﻿using Bogus;
-using HWCollections.MyClass;
+﻿using HWCollections.MyClass;
 using System.Collections;
 using HWCollections.Books; 
 
