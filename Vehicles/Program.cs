@@ -11,7 +11,7 @@ namespace Vehicles
             var car = new Car("Volvo", 100, 250, color);
             var motorbike = new Motorbike(1.5 , 100, 200, color);
             var bicycle = new Bicycle(25, 20, color, "Mountain bicycle");
-            var horse = new Horse(45, 50, color);
+            var horse = new Horse(45, 50, color, "Mustang", "Gleb");
 
             car.Refuel(50);
             car.Move();
