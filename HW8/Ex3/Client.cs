@@ -23,7 +23,7 @@
         }
         internal void Notification(string News)
         {
-            Console.WriteLine($"Уведомление {News}");
+            Console.WriteLine($"Уведомление! {News}");
         }
         private void NewsProviderNews(object sender, NewsEventArgs args)
         {
