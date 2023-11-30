@@ -1,6 +1,6 @@
-﻿namespace HW8
+﻿namespace HW8.Ex2
 {
-    internal class Person
+    internal class MyPerson
     {
         public string FirstName { get; init; }
 
@@ -10,7 +10,7 @@
 
         public string Department { get; protected set; }
 
-        public Person(string firstName, string lastName, int age, string department) 
+        public MyPerson(string firstName, string lastName, int age, string department)
         {
             FirstName = firstName;
             LastName = lastName;
